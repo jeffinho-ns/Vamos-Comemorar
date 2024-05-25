@@ -9,3 +9,8 @@
 .img-banner {
     background-position: 25% 75%;
 }
+
+.form-search {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
