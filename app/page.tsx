@@ -12,6 +12,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import img01 from "@/app/assets/banner01.webp";
 import Footer from "./components/footer/footer";
+import logoBanner from "@/app/assets/commemoration.png"
 
 export default function Home() {
   const responsive = {
@@ -38,18 +39,23 @@ export default function Home() {
     <>
       <Header />
 
-      <Banner id="banner" className="banner background-gradient h-full">
-        {/* <div className="overlay background-gradient fixed h-full top-0 right-0 bottom-0 left-0"></div> */}
+      <Banner id="banner" className="banner background-gradient h-full relative flex items-center">
+        <div className="overlay background-gradient absolute h-4/5 top-0 right-0 bottom-0 left-0"></div>
+        <div className="title-banner absolute flex flex-col items-center">
+          <Image src={logoBanner} alt="Logo banner" width={150} height={150} />
+          <h1 className="text-2xl text-white text-center">Sua comemoração de um jeito que você nunca imaginou!</h1>
+          <p className="text-md text-white text-center">Reunimos os melhores estabelecimentos e benefícios para facilitar a sua comemoração, quanto mais convidados você levar, mais benefícios receberá.</p>
+        </div>
         <Image
           src={banner01}
           alt="Imagem do banner"
           className="Image-banner object-cover h-full"
         />
       </Banner>
-      <div className="flex justify-center w-screen relative bottom-1/4 bottom-1/4 md:bottom-20 px-4 ">
+      <div className="flex justify-center w-screen relative bottom-32	 bottom-1/4 md:bottom-20 px-4 ">
         <Form
           id="form-search"
-          className="md:w-3/5	border border-gray-600 border-b-0 form-search bg-white px-6 py-4"
+          className="md:w-3/5 border-b-0 form-search bg-white px-6 py-4"
         >
           <div className="grid grid-cols-1 md:grid-cols-3">
             <div className="flex items-center w-full my-2">
@@ -74,7 +80,7 @@ export default function Home() {
                 className="p-2 w-full data"
               />
             </div>
-            <div className="flex items-center w-full relative mx-2">
+            <div className="flex items-center w-full relative">
               <MdSearch className="text-blue-600 text-3xl absolute text-gray-700 right-0" />
               <Input
                 placeholder="Buscar por nome"
@@ -87,7 +93,7 @@ export default function Home() {
           </div>
         </Form>
       </div>
-      <main className="container px-8 w-full bg-white">
+      <main className="container px-8 w-full bg-white pb-8">
         <Carousel responsive={responsive} className="grid">
           <div className="mr-4 ml-4">
             <Image src={img01} alt="" />
