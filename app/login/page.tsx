@@ -32,7 +32,7 @@ export default function Login() {
   
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="">
       {openModal && (
         <div>
           Aqui vai o modal de troca de senha
@@ -44,17 +44,17 @@ export default function Login() {
 
       <div className="form-container">
         <Link href="/">
-          <Image src={logoWhite} alt="Logo" className="w-100" />
+          <Image src={logoWhite} alt="Logo" />
         </Link>
 
         <div className="title">
           <h1>Login</h1>
           <p>
-            Ainda não tem uma conta? <Link href="/cadastrar">Cadastrar</Link>
+            Ainda não tem uma conta? <Link href="/register">Cadastrar</Link>
           </p>
         </div>
-        <Form id="form-login" className="">
-          <div className="grid grid-col-1">
+        <Form id="form-login" className="form-login">
+          <div className="">
             <Input
               placeholder="Email / CPF"
               type="text"
