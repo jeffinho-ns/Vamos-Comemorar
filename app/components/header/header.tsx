@@ -37,8 +37,8 @@ const Header: React.FC = () => {
           >
             ENTRAR
           </Button>
-          <FaFacebookF className="text-white mr-4 ml-4" />
-          <FaInstagram className="text-white" />
+          <FaFacebookF className="text-white mr-4 ml-4 text-3xl" />
+          <FaInstagram className="text-white ml-4 text-3xl " />
         </div>
 
         <div className="md:hidden flex items-center justify-between py-8">

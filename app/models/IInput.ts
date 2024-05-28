@@ -4,5 +4,5 @@ export interface IInput {
     className: string
     value: string 
     placeholder?: string
-    onChange?: (e: string) => void
+    onChange?: any
 }
