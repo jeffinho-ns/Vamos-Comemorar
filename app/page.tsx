@@ -10,13 +10,9 @@ import Input from "./components/input/input";
 import Carousel from "react-multi-carousel";
 import img01 from "@/app/assets/banner01.webp";
 import Footer from "./components/footer/footer";
-import logoBanner from "@/app/assets/commemoration.png"
-import { 
-  MdLocationPin, 
-  MdLocationCity, 
-  MdSearch 
-} from "react-icons/md";
-import "react-multi-carousel/lib/styles.css";
+import logoBanner from "@/app/assets/commemoration.png";
+import { MdLocationPin, MdLocationCity, MdSearch } from "react-icons/md";
+import "react-multi-carousel/lib/styles.scss";
 
 export default function Home() {
   const responsive = {
@@ -43,12 +39,21 @@ export default function Home() {
     <>
       <Header />
 
-      <Banner id="banner" className="banner background-gradient h-full relative flex items-center justify-center">
+      <Banner
+        id="banner"
+        className="banner background-gradient h-full relative flex items-center justify-center"
+      >
         <div className="overlay background-gradient absolute h-4/5 top-0 right-0 bottom-0 left-0"></div>
         <div className="title-banner absolute flex flex-col items-center md:text-center">
           <Image src={logoBanner} alt="Logo banner" width={150} height={150} />
-          <h1 className="text-3xl	 text-white text-center">Sua comemoração de um jeito que você nunca imaginou!</h1>
-          <p className="text-lg text-white text-center">Reunimos os melhores estabelecimentos e benefícios para facilitar a sua comemoração, quanto mais convidados você levar, mais benefícios receberá.</p>
+          <h1 className="text-3xl	 text-white text-center">
+            Sua comemoração de um jeito que você nunca imaginou!
+          </h1>
+          <p className="text-lg text-white text-center">
+            Reunimos os melhores estabelecimentos e benefícios para facilitar a
+            sua comemoração, quanto mais convidados você levar, mais benefícios
+            receberá.
+          </p>
         </div>
         <Image
           src={imgBanner}

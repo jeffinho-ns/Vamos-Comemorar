@@ -8,8 +8,8 @@ import Button from "../button/Button/button";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { useState } from "react";
-import { MdPerson } from "react-icons/md"
-import "./styles.css";
+import { MdPerson } from "react-icons/md";
+import "./styles.scss";
 
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -22,7 +22,10 @@ const Header: React.FC = () => {
           <Link href="/">
             <Image src={logoWhite} alt="Logo" className="w-100" />
           </Link>
-          <Link href="/quem-somos" className="mr-4 ml-10 text-white hidden md:block">
+          <Link
+            href="/quem-somos"
+            className="mr-4 ml-10 text-white hidden md:block"
+          >
             Quen somos
           </Link>
           <Link href="/quem-somos" className="ml-4 text-white hidden md:block">
@@ -42,7 +45,7 @@ const Header: React.FC = () => {
         </div>
 
         <div className="md:hidden flex items-center justify-between py-8">
-          <MdPerson className="text-white mr-4 text-3xl"/>
+          <MdPerson className="text-white mr-4 text-3xl" />
           <nav>
             <section className="MOBILE-MENU flex lg:hidden">
               <div
@@ -58,7 +61,7 @@ const Header: React.FC = () => {
                 {" "}
                 <div
                   className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-                  onClick={() => setIsNavOpen(false)} 
+                  onClick={() => setIsNavOpen(false)}
                 >
                   <svg
                     className="h-8 w-8 text-gray-600"
@@ -83,7 +86,6 @@ const Header: React.FC = () => {
                 </ul>
               </div>
             </section>
-
           </nav>
         </div>
       </div>
