@@ -12,7 +12,8 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-multi-carousel": "^2.8.5"
+    "react-multi-carousel": "^2.8.5",
+    "sass": "^1.77.4"
   },
   "devDependencies": {
     "@types/node": "^20",
