@@ -12,7 +12,7 @@ import img01 from "@/app/assets/banner01.webp";
 import Footer from "./components/footer/footer";
 import logoBanner from "@/app/assets/commemoration.png";
 import { MdLocationPin, MdLocationCity, MdSearch } from "react-icons/md";
-import "react-multi-carousel/lib/styles.scss";
+import "react-multi-carousel/lib/styles.css";
 
 export default function Home() {
   const responsive = {
