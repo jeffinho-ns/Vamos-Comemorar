@@ -4,7 +4,7 @@ import Image from "next/image";
 import logoWhite from "@/app/assets/logo_white.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Button from "../button/Button/button";
+import Button from "../button/button";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { useState } from "react";
@@ -22,11 +22,10 @@ const Header: React.FC = () => {
           <Link href="/">
             <Image src={logoWhite} alt="Logo" className="w-100" />
           </Link>
-          <Link
-            href="/quem-somos"
+          <Link href="/about"
             className="mr-4 ml-10 text-white hidden md:block"
           >
-            Quen somos
+            Quem somos
           </Link>
           <Link href="/quem-somos" className="ml-4 text-white hidden md:block">
             Seja parceiro
@@ -36,11 +35,11 @@ const Header: React.FC = () => {
           <Button
             type="submit"
             onClick={() => router.push("/login")}
-            className="bg-white rounded-lg px-5 py-2 font-normal text-sm text-gray-700"
+            className="bg-white rounded-lg px-4 py-2 font-normal text-sm text-gray-700"
           >
             ENTRAR
           </Button>
-          <FaFacebookF className="text-white mr-4 ml-4 text-3xl" />
+          <FaFacebookF className="text-white ml-4 text-3xl" />
           <FaInstagram className="text-white ml-4 text-3xl " />
         </div>
 

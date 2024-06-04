@@ -7,7 +7,7 @@ import Form from "@/app/components/form/form";
 import logoWhite from "@/app/assets/logo_white.png";
 import Link from "next/link";
 import Input from "../components/input/input";
-import Button from "../components/button/Button/button";
+import Button from "../components/button/button";
 import { 
   MdVisibility, 
   MdVisibilityOff 
