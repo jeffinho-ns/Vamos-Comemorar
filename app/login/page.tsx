@@ -22,7 +22,6 @@ export default function Login() {
     // memorization para validação dos campos de email / cpf e senha
   }, []);
 
-  // Função para fazer login no sistema
   const handleLogin = () => {};
 
   return (

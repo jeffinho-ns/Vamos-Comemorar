@@ -38,7 +38,6 @@ export default function Register() {
 
   const handleRegister = () => {
     if (validInputs) {
-      // Implementar lógica de registro aqui
       console.log("Registro efetuado com sucesso");
     } else {
       console.log("Preencha todos os campos corretamente");

@@ -11,7 +11,7 @@
 .banner-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Para garantir que a imagem cubra toda a área do contêiner */
+  object-fit: cover;
 }
 
 .login {
@@ -25,12 +25,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 500px;
-  width: 100%; /* Ajuste a largura conforme necessário */
+  width: 100%;
 }
 
 .form-container {
   position: relative; /* Adicionamos position: relative para garantir que o conteúdo fique dentro do contêiner */
-  margin-top: 20px; /* Espaçamento entre o banner e a área de login */
+  margin-top: 20px;
   padding: 20px;
   background-color: #f0f0f0;
   border-radius: 10px;

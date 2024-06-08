@@ -20,7 +20,6 @@ html {
   object-fit: cover;
 }
 
-/* Container principal de registro */
 .register {
   position: absolute;
   top: 50%;
@@ -50,7 +49,7 @@ html {
 .account-link:hover {
   text-decoration: underline;
 }
-/* Container do formulário */
+
 .form-container {
   position: relative;
   margin-top: 20px;
@@ -63,7 +62,6 @@ html {
   box-sizing: border-box;
 }
 
-/* Título */
 .title {
   margin-bottom: 20px;
 }
