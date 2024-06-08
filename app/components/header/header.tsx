@@ -22,9 +22,7 @@ const Header: React.FC = () => {
           <Link href="/">
             <Image src={logoWhite} alt="Logo" className="w-100" />
           </Link>
-          <Link href="/about"
-            className="mr-4 ml-10 text-white hidden md:block"
-          >
+          <Link href="/about" className="mr-4 ml-10 text-white hidden md:block">
             Quem somos
           </Link>
           <Link href="/quem-somos" className="ml-4 text-white hidden md:block">
