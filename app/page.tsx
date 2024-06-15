@@ -16,7 +16,6 @@ import { MdLocationOn, MdRestaurant } from "react-icons/md";
 import logoBanner from "@/app/assets/commemoration.png";
 import { MdLocationPin, MdLocationCity, MdSearch } from "react-icons/md";
 import "react-multi-carousel/lib/styles.css";
-import "./globals.scss";
 
 export default function Home() {
   const [showSecondCarousel, setShowSecondCarousel] = useState(false);
@@ -41,7 +40,14 @@ export default function Home() {
     },
   };
 
-  const Card = ({ image, title, address, distance, rating, description }) => (
+  const Card = ({
+    image,
+    title,
+    address,
+    distance,
+    rating,
+    description,
+  }: any) => (
     <motion.div
       className="relative bg-white rounded-lg shadow-md overflow-hidden mx-4 mt-16"
       initial={{ opacity: 0, x: -100 }}
@@ -75,7 +81,6 @@ export default function Home() {
   return (
     <>
       <Header />
-
       <Banner
         id="banner"
         className="banner background-gradient h-full relative flex items-center justify-center"

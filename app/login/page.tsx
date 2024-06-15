@@ -8,9 +8,9 @@ import logoWhite from "@/app/assets/logo_white.png";
 import Link from "next/link";
 import Input from "../components/input/input";
 import Button from "../components/button/button";
-import "./styles.scss";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useMemo, useState } from "react";
+import "./styles.scss";
 
 export default function Login() {
   const [show, setShow] = useState<boolean>(false);
