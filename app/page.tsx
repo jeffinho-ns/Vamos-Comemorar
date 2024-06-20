@@ -15,6 +15,7 @@ import Footer from "./components/footer/footer";
 import { MdLocationOn, MdRestaurant } from "react-icons/md";
 import logoBanner from "@/app/assets/commemoration.png";
 import { MdLocationPin, MdLocationCity, MdSearch } from "react-icons/md";
+import Link from "next/link";
 import "react-multi-carousel/lib/styles.css";
 import "./globals.scss";
 
@@ -23,7 +24,6 @@ export default function Home() {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -41,9 +41,17 @@ export default function Home() {
     },
   };
 
-  const Card = ({ image, title, address, distance, rating, description }) => (
+  const Card = ({
+    image,
+    title,
+    address,
+    distance,
+    rating,
+    description,
+    link,
+  }) => (
     <motion.div
-      className="relative bg-white rounded-lg shadow-md overflow-hidden mx-4 mt-16"
+      className="relative bg-white rounded-lg shadow-md overflow-hidden mx-4 mt-16 card-container"
       initial={{ opacity: 0, x: -100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
@@ -54,6 +62,9 @@ export default function Home() {
           alt={title}
           className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-md"
         />
+        <Link href={link}>
+          <button className="card-button">Reservar</button>
+        </Link>
       </div>
       <div className="p-4 mt-8">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
@@ -148,6 +159,7 @@ export default function Home() {
             distance="11.5km"
             rating="4.9 (2.7K)"
             description="O Justino é um bar aconchegante, referência de agito, drinks e ótimos petiscos. A Casa possui área interna, com palco e pista, para receber DJs e shows ao vivo dos mais variados estilos musicais."
+            link="/bar"
           />
           <Card
             image={img01}
@@ -156,6 +168,7 @@ export default function Home() {
             distance="8.2km"
             rating="4.8 (1.2K)"
             description="O Bar do Zé é um ponto de encontro clássico, com um ambiente descontraído e drinks exclusivos. Venha conferir!"
+            link="/bar-do-ze"
           />
           <Card
             image={img01}
@@ -164,6 +177,7 @@ export default function Home() {
             distance="5.9km"
             rating="4.7 (3.5K)"
             description="Um lugar perfeito para relaxar e curtir boa música ao vivo. Boteco do Chico oferece uma experiência única."
+            link="/boteco-do-chico"
           />
         </Carousel>
         {showSecondCarousel && (
@@ -175,6 +189,7 @@ export default function Home() {
               distance="7.4km"
               rating="4.6 (900)"
               description="A Cervejaria da Esquina oferece uma variedade de cervejas artesanais em um ambiente acolhedor."
+              link="/cervejaria-da-esquina"
             />
             <Card
               image={img01}
@@ -183,6 +198,7 @@ export default function Home() {
               distance="9.1km"
               rating="4.9 (1.5K)"
               description="O Pub do João é conhecido por sua vasta seleção de cervejas importadas e uma atmosfera animada."
+              link="/pub-do-joao"
             />
             <Card
               image={img01}
@@ -191,6 +207,7 @@ export default function Home() {
               distance="6.8km"
               rating="4.5 (2.1K)"
               description="Na Choperia da Vila, você encontra os melhores chopes da região e uma culinária de dar água na boca."
+              link="/choperia-da-vila"
             />
           </Carousel>
         )}
