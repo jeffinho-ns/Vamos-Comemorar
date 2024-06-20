@@ -10,7 +10,9 @@ import Form from "./components/form/form";
 import Select from "./components/select/select";
 import Input from "./components/input/input";
 import Carousel from "react-multi-carousel";
-import img01 from "@/app/assets/banner01.webp";
+import img01 from "@/app/assets/justino/capa-justino.png";
+import img02 from "@/app/assets/oh-fregues.jpg";
+import img03 from "@/app/assets/highline/capa-highline.jpeg";
 import Footer from "./components/footer/footer";
 import { MdLocationOn, MdRestaurant } from "react-icons/md";
 import logoBanner from "@/app/assets/commemoration.png";
@@ -159,25 +161,25 @@ export default function Home() {
             distance="11.5km"
             rating="4.9 (2.7K)"
             description="O Justino é um bar aconchegante, referência de agito, drinks e ótimos petiscos. A Casa possui área interna, com palco e pista, para receber DJs e shows ao vivo dos mais variados estilos musicais."
-            link="/bar"
+            link="/justino"
           />
           <Card
-            image={img01}
-            title="Bar do Zé"
-            address="Rua da Alegria, 123"
+            image={img02}
+            title="Oh Fregues"
+            address="Largo da Matriz de Nossa Senhora do Ó, 145"
             distance="8.2km"
             rating="4.8 (1.2K)"
-            description="O Bar do Zé é um ponto de encontro clássico, com um ambiente descontraído e drinks exclusivos. Venha conferir!"
-            link="/bar-do-ze"
+            description="O Oh Fregues é um ponto de encontro clássico, com um ambiente descontraído e drinks exclusivos. Venha conferir!"
+            link="/ohfregues"
           />
           <Card
-            image={img01}
-            title="Boteco do Chico"
-            address="Avenida Central, 456"
+            image={img03}
+            title="High Line Bar"
+            address="Rua Girassol, 144 - Vila madalena"
             distance="5.9km"
             rating="4.7 (3.5K)"
-            description="Um lugar perfeito para relaxar e curtir boa música ao vivo. Boteco do Chico oferece uma experiência única."
-            link="/boteco-do-chico"
+            description="Um lugar perfeito para relaxar e curtir boa música ao vivo. High Line bar oferece uma experiência única."
+            link="/highline"
           />
         </Carousel>
         {showSecondCarousel && (

@@ -5,26 +5,26 @@ import Image from "next/image";
 import { MdLocationOn, MdInfoOutline, MdEvent } from "react-icons/md";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
-import imgBanner from "@/app/assets/oh-fregues.jpg";
+import imgBanner from "@/app/assets/highline/capa-highline.jpeg";
 import "react-multi-carousel/lib/styles.css";
 import Modal from "react-modal";
-import styles from "./bar.module.scss";
+import styles from "./highline.module.scss";
 
-import newImg1 from "@/app/assets/ohfregues/ambiente-1.jpg";
-import newImg2 from "@/app/assets/ohfregues/ambiente-2.jpg";
-import newImg3 from "@/app/assets/ohfregues/ambiente-3.jpg";
-import newImg4 from "@/app/assets/ohfregues/ambiente-4.jpg";
+import newImg1 from "@/app/assets/highline/ambiente-1.jpeg";
+import newImg2 from "@/app/assets/highline/ambiente-2.jpeg";
+import newImg3 from "@/app/assets/highline/ambiente-3.jpeg";
+import newImg4 from "@/app/assets/highline/ambiente-4.jpeg";
 
-import bebida1 from "@/app/assets/ohfregues/bebidas-1.jpg";
-import bebida2 from "@/app/assets/ohfregues/bebidas-2.jpg";
-import bebida3 from "@/app/assets/ohfregues/bebidas-3.jpg";
-import bebida4 from "@/app/assets/ohfregues/bebidas-4.jpg";
+import bebida1 from "@/app/assets/highline/bebida-1.jpeg";
+import bebida2 from "@/app/assets/highline/bebida-2.jpeg";
+import bebida3 from "@/app/assets/highline/bebida-3.jpeg";
+import bebida4 from "@/app/assets/highline/bebida-4.jpeg";
 
-import gastro1 from "@/app/assets/ohfregues/gastronomia-1.jpg";
-import gastro2 from "@/app/assets/ohfregues/gastronomia-2.jpg";
-import gastro3 from "@/app/assets/ohfregues/gastronomia-3.jpg";
-import gastro4 from "@/app/assets/ohfregues/gastronomia-4.jpg";
-import logoNew from "@/app/assets/ohfregues/logoOhfregues.png";
+import gastro1 from "@/app/assets/highline/gastronomia-1.jpeg";
+import gastro2 from "@/app/assets/highline/gastronomia-2.jpeg";
+import gastro3 from "@/app/assets/highline/gastronomia-3.jpeg";
+import gastro4 from "@/app/assets/highline/gastronomia-4.jpeg";
+import logoNew from "@/app/assets/highline/highlinelogo.png";
 
 import icon1 from "@/app/assets/icones/area.png";
 import icon2 from "@/app/assets/icones/acessivel.png";
@@ -36,7 +36,7 @@ Modal.setAppElement(
   typeof window !== "undefined" && document.getElementById("__next")
 ); // Correção para o modal encontrar o elemento correto
 
-const Bar = () => {
+const Highline = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [modalContent, setModalContent] = useState(null);
@@ -90,10 +90,10 @@ const Bar = () => {
       <div className={styles.barInfo}>
         <div className={styles.infoContainer}>
           <div className={styles.leftColumn}>
-            <h1 className={styles.barName}>Oh Freguês</h1>
+            <h1 className={styles.barName}>High Line Bar</h1>
             <div className={styles.barDetails}>
               <MdLocationOn className={styles.icon} />
-              <span>Largo da Matriz de Nossa Senhora do Ó, 145</span>
+              <span>Rua Girassol, 144 - Vila madalena</span>
             </div>
           </div>
           <div className={styles.middleColumn}>
@@ -127,7 +127,7 @@ const Bar = () => {
           </div>
         </div>
         <p className={styles.barDescription}>
-          O bar Oh Freguês oferece uma experiência única de interação com o
+          O High Line Bar oferece uma experiência única de interação com o
           público, é um ponto de encontro moderno entre os jovens e adultos, um
           lugar perfeito para happy hour, aniversários ou eventos corporativos.
           A decoração e estilo segue o modelo dos mais diversos hostels
@@ -160,7 +160,7 @@ const Bar = () => {
 
       <div className={styles.mapContainer}>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.8531229789736!2d-46.70965078450384!3d-23.504566264570394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef8c55b0f2e7b%3A0x6b9156a1e51233b3!2sLargo%20da%20Matriz%20de%20Nossa%20Senhora%20do%20%C3%93%2C%20145%20-%20Freguesia%20do%20%C3%93%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2002925-040!5e0!3m2!1sen!2sbr!4v1625157527756!5m2!1sen!2sbr"
+          src="https://www.google.com/maps/place/R.+Azevedo+Soares,+940+-+Vila+Gomes+Cardim,+São+Paulo+-+SP,+03322-001/@-23.5493477,-46.5701764,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5e9165a1d34b:0xf924a2f7947ca89b!8m2!3d-23.5493526!4d-46.5676015!16s%2Fg%2F11c0psfs_1?entry=ttu"
           width="100%"
           height="450"
           style={{ border: 0 }}
@@ -224,4 +224,4 @@ const Section = ({ title, images, openModal }) => (
   </div>
 );
 
-export default Bar;
+export default Highline;
