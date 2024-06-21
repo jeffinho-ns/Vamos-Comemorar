@@ -36,5 +36,32 @@ p.text-gray-700.mb-2 {
 
 .text-xl {
   font-size: 35px;
-  line-height: 1rem;
+  line-height: 2rem;
+}
+
+.card-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-container:hover .card-button {
+  opacity: 1;
+}
+
+button.bg-blue-500.text-white.py-2.px-4.rounded {
+  width: 20%;
 }

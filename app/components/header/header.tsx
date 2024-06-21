@@ -1,22 +1,32 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import logoWhite from "@/app/assets/logo_white.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Button from "../button/button";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { useState } from "react";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { MdPerson } from "react-icons/md";
+import logoWhite from "@/app/assets/logo_white.png";
 import "./styles.scss";
 
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed w-full z-10 bg-blue-800">
+    <header className={`fixed w-full z-10 transition-all ${isScrolled ? 'bg-blue-800' : 'bg-transparent'}`}>
       <div className="px-8 py-4 container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link href="/">
@@ -30,19 +40,19 @@ const Header: React.FC = () => {
           </Link>
         </div>
         <div className="hidden md:flex items-center flex-end">
-          <Button
-            type="submit"
+          <MdPerson
+            className="text-white ml-4 text-3xl cursor-pointer"
             onClick={() => router.push("/login")}
-            className="bg-white rounded-lg px-4 py-2 font-normal text-sm text-gray-700"
-          >
-            ENTRAR
-          </Button>
+          />
           <FaFacebookF className="text-white ml-4 text-3xl" />
           <FaInstagram className="text-white ml-4 text-3xl " />
         </div>
 
         <div className="md:hidden flex items-center justify-between py-8">
-          <MdPerson className="text-white mr-4 text-3xl" />
+          <MdPerson
+            className="text-white mr-4 text-3xl cursor-pointer"
+            onClick={() => router.push("/login")}
+          />
           <nav>
             <section className="MOBILE-MENU flex lg:hidden">
               <div
@@ -55,7 +65,6 @@ const Header: React.FC = () => {
               </div>
 
               <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
-                {" "}
                 <div
                   className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
                   onClick={() => setIsNavOpen(false)}
