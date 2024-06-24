@@ -1,0 +1,28 @@
+@use '../../variables'
+
+.table-container 
+    width: 100%
+
+    .btn-table-actions
+        display: flex
+
+        .btn-add,
+        .btn-refresh
+            width: 56px
+            height: 56px
+            border-radius: 50%
+            display: flex
+            justify-content: center
+            align-items: center
+            color: #fff
+            font-size: 1.5rem
+
+        .btn-add
+            background-color: variables.$bg-secondary-color-blue
+        
+        .btn-refresh
+            background-color: variables.$bg-dark-gray
+
+    table 
+        background-color: variables.$bg-white
+        width: 100%

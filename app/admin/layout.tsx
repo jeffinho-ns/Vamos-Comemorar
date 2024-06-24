@@ -16,11 +16,31 @@ import {
 } from "react-icons/md";
 import Link from "next/link";
 import "./styles.sass";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DashboardLayout({ children }: any) {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const [pathname, setPathname] = useState<string>()
+  const [pathname, setPathname] = useState<string>("Dashboard");
+  const [screenSize, setScreenSize] = useState<number | string>(300)
+
+
+  const handleScreenSize = () => {
+      let teste = showMenu === false ? true : false
+      console.log(teste)
+      let size = window.innerWidth
+      if (size < 800) {
+        setShowMenu(teste)
+      }
+  }
+
+  useEffect(() => {
+    function reportWindowSize() {
+      let size = window.innerWidth
+      setScreenSize(size)
+    }
+    
+    window.onresize = reportWindowSize;
+  }, [screenSize])
 
   return (
     <>
@@ -30,7 +50,7 @@ export default function DashboardLayout({ children }: any) {
             <Image src={logBrand} alt="Logo banner" width={130} height={130} />
           </Link>
 
-          <span className="navbar" onClick={() => setShowMenu(!showMenu)}>
+          <span className="navbar" onClick={handleScreenSize}>
             <MdMenu className="navbar-menu-icon" />
           </span>
         </div>
@@ -40,13 +60,17 @@ export default function DashboardLayout({ children }: any) {
           <MdPerson className="avatar-icon" />
         </span>
       </header>
-        {showMenu && (
-          <aside className={showMenu ? "aside open-menu" : "aside"}>
+      <div className="container">
+          <aside className={showMenu === true ? "aside open-menu" : "aside hide-menu"}>
             <nav className="aside-navbar">
               <ul>
                 <li style={{ backgroundColor: "#6561c1" }}>
                   <MdDashboard />
-                  <Link href="" className="dashboard-link" onClick={() => setPathname('Dashboard')}>
+                  <Link
+                    href="/admin"
+                    className="dashboard-link"
+                    onClick={() => setPathname("Dashboard")}
+                  >
                     Dashboard
                   </Link>
                 </li>
@@ -54,15 +78,20 @@ export default function DashboardLayout({ children }: any) {
                   <h2>Operacional</h2>
                   <li>
                     <MdPerson3 />
-                    <Link href="">Usuários</Link>
+                    <Link
+                      href="/admin/users"
+                      onClick={() => setPathname("users")}
+                    >
+                      Usuários
+                    </Link>
                   </li>
                   <li>
                     <MdFactory />
-                    <Link href="">Empresa</Link>
+                    <Link href="/admin/factory">Empresa</Link>
                   </li>
                   <li>
                     <MdSpaceBar />
-                    <Link href="">Commodities</Link>
+                    <Link href="/admin/commodities">Commodities</Link>
                   </li>
                 </div>
 
@@ -70,30 +99,41 @@ export default function DashboardLayout({ children }: any) {
                   <h2>Lugares</h2>
                   <li>
                     <MdPlace />
-                    <Link href="">Lugares</Link>
+                    <Link href="/places">Lugares</Link>
                   </li>
                   <li>
                     <MdTableBar />
-                    <Link href="">Mesas</Link>
+                    <Link href="/tables">Mesas</Link>
                   </li>
                   <li>
                     <MdCardGiftcard />
-                    <Link href="">Brindes</Link>
+                    <Link href="/gifts">Brindes</Link>
                   </li>
                   <li>
                     <MdTimer />
-                    <Link href="">Dias de funcionamento</Link>
+                    <Link href="/days">Dias de funcionamento</Link>
                   </li>
                   <li>
                     <MdEditCalendar />
 
-                    <Link href="">Reservas</Link>
+                    <Link href="/reservation">Reservas</Link>
                   </li>
                 </div>
               </ul>
             </nav>
           </aside>
-        )}
+        <div className="main-container">
+          <main className="main">
+            <header>
+              <h1>{pathname}</h1>
+            </header>
+            {children}
+          </main>
+          <footer className="footer">
+            <p>&copy;2024 - Vamos Comemorar</p>
+          </footer>
+        </div>
+      </div>
     </>
   );
 }
