@@ -1,0 +1,237 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  height: 100%;
+  max-height: 600px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rightColumn {
+  width: 50%;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.address {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.iconContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.iconItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconTitle {
+  margin-top: 4px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.body {
+  flex: 2;
+  padding: -10px;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+.guests {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.counterButton {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select,
+.dateInput {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.reserveButton {
+  width: calc(100% - 32px);
+  margin: 16px;
+  padding: 10px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.reserveButton:hover {
+  background-color: #005bb5;
+}
+
+.footer {
+  text-align: center;
+  margin-top: -16px;
+}
+
+.disclaimer {
+  font-size: 10px;
+  color: #777;
+  padding: 0 16px 16px;
+}
+
+.body {
+  padding: 10px 10rem 0 10rem;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.sectionIcon {
+  font-size: 24px;
+}
+
+.sectionTitle {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 18px;
+  margin: 0;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.counterButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.counterValue {
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+.select {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0px 0px 0px 50px;
+}
+.priceContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.priceInfo {
+  margin-left: 20px;
+  color: #757575;
+  font-size: 16px;
+}
+
+.dateInput {
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.reserveButton {
+  background-color: #008cba;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.disclaimer {
+  margin-top: -10px;
+  color: #757575;
+  font-size: 14px;
+}

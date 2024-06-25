@@ -7,8 +7,8 @@ import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import imgBanner from "@/app/assets/oh-fregues.jpg";
 import "react-multi-carousel/lib/styles.css";
-import Modal from "react-modal";
 import styles from "./ohfregues.module.scss";
+import Programacao from "../components/programacao/programacao";
 
 import newImg1 from "@/app/assets/ohfregues/ambiente-1.jpg";
 import newImg2 from "@/app/assets/ohfregues/ambiente-2.jpg";
@@ -32,34 +32,15 @@ import icon3 from "@/app/assets/icones/estacionamento.png";
 import icon4 from "@/app/assets/icones/18.png";
 import icon5 from "@/app/assets/icones/mesa.png";
 
-Modal.setAppElement(
-  typeof window !== "undefined" && document.getElementById("__next")
-); // Correção para o modal encontrar o elemento correto
-
 const Ohfregues = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [modalContent, setModalContent] = useState(null);
+  const [showDescription, setShowDescription] = useState(true);
 
-  const openModal = (img) => {
-    setSelectedImage(img);
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setSelectedImage(null);
-    setModalContent(null);
-  };
-
-  const openModalSobre = () => {
-    setModalContent("sobre");
-    setModalIsOpen(true);
-  };
-
-  const openModalEventos = () => {
-    setModalContent("eventos");
-    setModalIsOpen(true);
+  const toggleContent = (content) => {
+    if (content === "sobre") {
+      setShowDescription(true);
+    } else if (content === "eventos") {
+      setShowDescription(false);
+    }
   };
 
   return (
@@ -75,11 +56,17 @@ const Ohfregues = () => {
         />
         <div className={styles.flexButtonContainer}>
           <div className={styles.flexButtonContainerBar}>
-            <button className={styles.button} onClick={openModalSobre}>
+            <button
+              className={styles.button}
+              onClick={() => toggleContent("sobre")}
+            >
               <MdInfoOutline className={styles.icon} />
               <span>Sobre</span>
             </button>
-            <button className={styles.button} onClick={openModalEventos}>
+            <button
+              className={styles.button}
+              onClick={() => toggleContent("eventos")}
+            >
               <MdEvent className={styles.icon} />
               <span>Eventos</span>
             </button>
@@ -126,36 +113,44 @@ const Ohfregues = () => {
             </div>
           </div>
         </div>
-        <p className={styles.barDescription}>
-          O bar Oh Freguês oferece uma experiência única de interação com o
-          público, é um ponto de encontro moderno entre os jovens e adultos, um
-          lugar perfeito para happy hour, aniversários ou eventos corporativos.
-          A decoração e estilo segue o modelo dos mais diversos hostels
-          espalhados pelo mundo. São quatro ambientes: calçada, onde passa a
-          sensação de estar em uma cidade de interior; piso térreo, que conta
-          com uma decoração moderna; rooftop, área externa com uma linda vista
-          que, aos fins de semana, conta com uma roda de samba para agitar as
-          tardes; além da balada, para finalizar a noite com um ótimo clima de
-          paquera.
-        </p>
+        <button className={styles.reserveButton}>Fazer reserva</button>
       </div>
 
+      <p className={styles.barDescription}>
+        O bar Oh Freguês oferece uma experiência única de interação com o
+        público, é um ponto de encontro moderno entre os jovens e adultos, um
+        lugar perfeito para happy hour, aniversários ou eventos corporativos. A
+        decoração e estilo segue o modelo dos mais diversos hostels espalhados
+        pelo mundo. São quatro ambientes: calçada, onde passa a sensação de
+        estar em uma cidade de interior; piso térreo, que conta com uma
+        decoração moderna; rooftop, área externa com uma linda vista que, aos
+        fins de semana, conta com uma roda de samba para agitar as tardes; além
+        da balada, para finalizar a noite com um ótimo clima de paquera.
+      </p>
+
+      {!showDescription && (
+        <div className={styles.programacao}>
+          <Programacao />
+        </div>
+      )}
+
       <div className={styles.sections}>
-        <Section
-          title="Ambientes"
-          images={[newImg1, newImg2, newImg3, newImg4]}
-          openModal={openModal}
-        />
-        <Section
-          title="Gastronomia"
-          images={[gastro1, gastro2, gastro3, gastro4]}
-          openModal={openModal}
-        />
-        <Section
-          title="Bebidas"
-          images={[bebida1, bebida2, bebida3, bebida4]}
-          openModal={openModal}
-        />
+        {showDescription && (
+          <>
+            <Section
+              title="Ambientes"
+              images={[newImg1, newImg2, newImg3, newImg4]}
+            />
+            <Section
+              title="Gastronomia"
+              images={[gastro1, gastro2, gastro3, gastro4]}
+            />
+            <Section
+              title="Bebidas"
+              images={[bebida1, bebida2, bebida3, bebida4]}
+            />
+          </>
+        )}
       </div>
 
       <div className={styles.mapContainer}>
@@ -170,53 +165,16 @@ const Ohfregues = () => {
       </div>
 
       <Footer />
-
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Modal"
-        style={{
-          overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.75)",
-          },
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            padding: "2rem",
-            borderRadius: "1rem",
-          },
-        }}
-      >
-        {selectedImage && (
-          <div className={styles.modalImageContainer}>
-            <img
-              src={selectedImage.src}
-              alt="Modal Image"
-              className={styles.modalImage}
-            />
-          </div>
-        )}
-        {modalContent === "sobre" && <div>Conteúdo sobre o bar...</div>}
-        {modalContent === "eventos" && <div>Conteúdo sobre eventos...</div>}
-      </Modal>
     </>
   );
 };
 
-const Section = ({ title, images, openModal }) => (
+const Section = ({ title, images }) => (
   <div className={styles.section}>
     <h2 className={styles.sectionTitle}>{title}</h2>
     <div className={styles.images}>
       {images.map((img, index) => (
-        <div
-          key={index}
-          className={styles.imageContainer}
-          onClick={() => openModal(img)}
-        >
+        <div key={index} className={styles.imageContainer}>
           <Image src={img} alt={title} className={styles.image} />
         </div>
       ))}

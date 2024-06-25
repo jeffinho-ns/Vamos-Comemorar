@@ -7,7 +7,7 @@ import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import imgBanner from "@/app/assets/highline/capa-highline.jpeg";
 import "react-multi-carousel/lib/styles.css";
-import Modal from "react-modal";
+import Programacao from "../components/programacao/programacao";
 import styles from "./highline.module.scss";
 
 import newImg1 from "@/app/assets/highline/ambiente-1.jpeg";
@@ -32,34 +32,15 @@ import icon3 from "@/app/assets/icones/estacionamento.png";
 import icon4 from "@/app/assets/icones/18.png";
 import icon5 from "@/app/assets/icones/mesa.png";
 
-Modal.setAppElement(
-  typeof window !== "undefined" && document.getElementById("__next")
-); // Correção para o modal encontrar o elemento correto
-
 const Highline = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [modalContent, setModalContent] = useState(null);
+  const [showDescription, setShowDescription] = useState(true);
 
-  const openModal = (img) => {
-    setSelectedImage(img);
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setSelectedImage(null);
-    setModalContent(null);
-  };
-
-  const openModalSobre = () => {
-    setModalContent("sobre");
-    setModalIsOpen(true);
-  };
-
-  const openModalEventos = () => {
-    setModalContent("eventos");
-    setModalIsOpen(true);
+  const toggleContent = (content) => {
+    if (content === "sobre") {
+      setShowDescription(true);
+    } else if (content === "eventos") {
+      setShowDescription(false);
+    }
   };
 
   return (
@@ -75,11 +56,17 @@ const Highline = () => {
         />
         <div className={styles.flexButtonContainer}>
           <div className={styles.flexButtonContainerBar}>
-            <button className={styles.button} onClick={openModalSobre}>
+            <button
+              className={styles.button}
+              onClick={() => toggleContent("sobre")}
+            >
               <MdInfoOutline className={styles.icon} />
               <span>Sobre</span>
             </button>
-            <button className={styles.button} onClick={openModalEventos}>
+            <button
+              className={styles.button}
+              onClick={() => toggleContent("eventos")}
+            >
               <MdEvent className={styles.icon} />
               <span>Eventos</span>
             </button>
@@ -126,41 +113,49 @@ const Highline = () => {
             </div>
           </div>
         </div>
-        <p className={styles.barDescription}>
-          O High Line Bar oferece uma experiência única de interação com o
-          público, é um ponto de encontro moderno entre os jovens e adultos, um
-          lugar perfeito para happy hour, aniversários ou eventos corporativos.
-          A decoração e estilo segue o modelo dos mais diversos hostels
-          espalhados pelo mundo. São quatro ambientes: calçada, onde passa a
-          sensação de estar em uma cidade de interior; piso térreo, que conta
-          com uma decoração moderna; rooftop, área externa com uma linda vista
-          que, aos fins de semana, conta com uma roda de samba para agitar as
-          tardes; além da balada, para finalizar a noite com um ótimo clima de
-          paquera.
-        </p>
+        <button className={styles.reserveButton}>Fazer reserva</button>
       </div>
 
+      <p className={styles.barDescription}>
+        O High Line Bar oferece uma experiência única de interação com o
+        público, é um ponto de encontro moderno entre os jovens e adultos, um
+        lugar perfeito para happy hour, aniversários ou eventos corporativos. A
+        decoração e estilo segue o modelo dos mais diversos hostels espalhados
+        pelo mundo. São quatro ambientes: calçada, onde passa a sensação de
+        estar em uma cidade de interior; piso térreo, que conta com uma
+        decoração moderna; rooftop, área externa com uma linda vista que, aos
+        fins de semana, conta com uma roda de samba para agitar as tardes; além
+        da balada, para finalizar a noite com um ótimo clima de paquera.
+      </p>
+
+      {!showDescription && (
+        <div className={styles.programacao}>
+          <Programacao />
+        </div>
+      )}
+
       <div className={styles.sections}>
-        <Section
-          title="Ambientes"
-          images={[newImg1, newImg2, newImg3, newImg4]}
-          openModal={openModal}
-        />
-        <Section
-          title="Gastronomia"
-          images={[gastro1, gastro2, gastro3, gastro4]}
-          openModal={openModal}
-        />
-        <Section
-          title="Bebidas"
-          images={[bebida1, bebida2, bebida3, bebida4]}
-          openModal={openModal}
-        />
+        {showDescription && (
+          <>
+            <Section
+              title="Ambientes"
+              images={[newImg1, newImg2, newImg3, newImg4]}
+            />
+            <Section
+              title="Gastronomia"
+              images={[gastro1, gastro2, gastro3, gastro4]}
+            />
+            <Section
+              title="Bebidas"
+              images={[bebida1, bebida2, bebida3, bebida4]}
+            />
+          </>
+        )}
       </div>
 
       <div className={styles.mapContainer}>
         <iframe
-          src="https://www.google.com/maps/place/R.+Azevedo+Soares,+940+-+Vila+Gomes+Cardim,+São+Paulo+-+SP,+03322-001/@-23.5493477,-46.5701764,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5e9165a1d34b:0xf924a2f7947ca89b!8m2!3d-23.5493526!4d-46.5676015!16s%2Fg%2F11c0psfs_1?entry=ttu"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.8531229789736!2d-46.70965078450384!3d-23.504566264570394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef8c55b0f2e7b%3A0x6b9156a1e51233b3!2sLargo%20da%20Matriz%20de%20Nossa%20Senhora%20do%20%C3%93%2C%20145%20-%20Freguesia%20do%20%C3%93%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2002925-040!5e0!3m2!1sen!2sbr!4v1625157527756!5m2!1sen!2sbr"
           width="100%"
           height="450"
           style={{ border: 0 }}
@@ -170,53 +165,16 @@ const Highline = () => {
       </div>
 
       <Footer />
-
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Modal"
-        style={{
-          overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.75)",
-          },
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            padding: "2rem",
-            borderRadius: "1rem",
-          },
-        }}
-      >
-        {selectedImage && (
-          <div className={styles.modalImageContainer}>
-            <img
-              src={selectedImage.src}
-              alt="Modal Image"
-              className={styles.modalImage}
-            />
-          </div>
-        )}
-        {modalContent === "sobre" && <div>Conteúdo sobre o bar...</div>}
-        {modalContent === "eventos" && <div>Conteúdo sobre eventos...</div>}
-      </Modal>
     </>
   );
 };
 
-const Section = ({ title, images, openModal }) => (
+const Section = ({ title, images }) => (
   <div className={styles.section}>
     <h2 className={styles.sectionTitle}>{title}</h2>
     <div className={styles.images}>
       {images.map((img, index) => (
-        <div
-          key={index}
-          className={styles.imageContainer}
-          onClick={() => openModal(img)}
-        >
+        <div key={index} className={styles.imageContainer}>
           <Image src={img} alt={title} className={styles.image} />
         </div>
       ))}
