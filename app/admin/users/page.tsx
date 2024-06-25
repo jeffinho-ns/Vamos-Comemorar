@@ -1,18 +1,17 @@
+"use client"
 import Button from "@/app/components/button/button";
 import { MdAdd, MdRefresh } from "react-icons/md";
+import Grid from "@/app/components/grid/grid";
+import Select from "@/app/components/select/select";
+import { filterData, users } from "@/app/repository/filterData";
 import "./styles.sass"
+import { useState } from "react";
 
-const users = [
-  {
-    name: "User 01",
-    email: "user@hotmail.com",
-    telefone: "2199999999",
-    status: "pendente",
-    createAt: "16/06/2024"
-  }
-]
+
 
 export default function Users() {
+  const [filerBy, setFilterBy] = useState<string>()
+
   return (
     <div className="table-container">
       <div className="btn-table-actions">
@@ -27,26 +26,38 @@ export default function Users() {
           </span>
         </Button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <td>Nome</td>
-            <td>E-mail</td>
-            <td>Telefone</td>
-            <td>Status</td>
-            <td>Criado em</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
+
+      <Grid>
+        {/* <Select onChange={setFilterBy} value={filerBy} className="sort-by" id="sort-by">
+           <option value="">Sort By</option>
+           {filterData.map((item: any) => (
+                <option key={item} value={item}>{item}</option>
+           ))}
+        </Select> */}
+        <div>
+        <header className="header-grid">
+            <span>Icone</span>
+            <span>Empresa</span>
+            <span>E-mail</span>
+            <span>Telefone</span>
+            <span>Status</span>
+            <span>Criado em</span>
+        </header>
+        <main className="grid-content">
+          <ul>
             {users.map(user => (
-              <>
-                <td>{user.name}</td>
-              </>
+                <li key={user.name}>
+                  <span>{user.name}</span>
+                  <span>{user.email}</span>
+                  <span>{user.telefone}</span>
+                  <span>{user.status}</span>
+                  <span>{user.createAt}</span>
+                </li>
             ))}
-          </tr>
-        </tbody>
-      </table>
+          </ul>
+        </main>
+        </div>
+      </Grid>
     </div>
   );
 }
