@@ -6,6 +6,7 @@ import Select from "@/app/components/select/select";
 import { filterData, users } from "@/app/repository/filterData";
 import "./styles.sass"
 import { useState } from "react";
+import Input from "@/app/components/input/input";
 
 
 
@@ -27,6 +28,16 @@ export default function Users() {
         </Button>
       </div>
 
+      <div className="search-container">
+        <Input className="search-input" placeholder="Nome, E-mail ou Cpf (Apenas Números)"
+        />
+        <Select
+          onChange={() => {}}
+          className="search-select"
+        >
+          <option value=""></option>
+        </Select>
+      </div>
       <Grid>
         {/* <Select onChange={setFilterBy} value={filerBy} className="sort-by" id="sort-by">
            <option value="">Sort By</option>

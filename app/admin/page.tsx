@@ -1,14 +1,8 @@
 "use client";
 import { MdPerson, MdPlace, MdShoppingCart, MdNumbers } from "react-icons/md";
-export default function Dashboard() {
-  // Objeto mock teste para informações do dashboard
-  const infos = {
-    users: 405,
-    places: 10,
-    reservation: 0,
-    points: 0,
-  };
+import { infos } from "../repository/filterData";
 
+export default function Dashboard() {
   return (
     <div className="container-dashboard">
       <div className="dashboard-item">

@@ -17,8 +17,9 @@ import {
 import Link from "next/link";
 import "./styles.sass";
 import { useEffect, useState } from "react";
+import AdminTemplate from "./template";
 
-export default function DashboardLayout({ children }: any) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [pathname, setPathname] = useState<string>("Dashboard");
   const [screenSize, setScreenSize] = useState<number | string>(300)
@@ -80,7 +81,7 @@ export default function DashboardLayout({ children }: any) {
                     <MdPerson3 />
                     <Link
                       href="/admin/users"
-                      onClick={() => setPathname("users")}
+                      onClick={() => setPathname("usuários")}
                     >
                       Usuários
                     </Link>
@@ -122,17 +123,15 @@ export default function DashboardLayout({ children }: any) {
               </ul>
             </nav>
           </aside>
-        <div className="main-container">
-          <main className="main">
-            <header>
+          <header className="admin-title">
               <h1>{pathname}</h1>
-            </header>
+          </header>
+          <AdminTemplate>
             {children}
-          </main>
+          </AdminTemplate>
           <footer className="footer">
             <p>&copy;2024 - Vamos Comemorar</p>
           </footer>
-        </div>
       </div>
     </>
   );
