@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 export interface ISelectProps {
     id: string 
     className: string 
-    value: string 
-    children: ReactNode
-    onChange: (e: string) => void
+    value?: string 
+    children: any
+    onChange?: (e: string) => void
 }
