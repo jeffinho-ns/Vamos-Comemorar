@@ -1,4 +1,4 @@
-import { ISelectProps } from "@/app/models/ISelect"
+import { ISelectProps } from "@/app/types/ISelect"
 
 const Select: React.FC<ISelectProps> = ({
     id,
@@ -12,6 +12,7 @@ const Select: React.FC<ISelectProps> = ({
             id={id}
             className={className}
             value={value}
+            onChange={e => onChange && onChange(e.target.value)}
         >
             {children}
         </select>
