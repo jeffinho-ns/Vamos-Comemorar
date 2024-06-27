@@ -15,9 +15,9 @@ import {
   MdCardGiftcard,
 } from "react-icons/md";
 import Link from "next/link";
-import "./styles.sass";
 import { useEffect, useState } from "react";
 import AdminTemplate from "./template";
+import "./styles.scss";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -123,15 +123,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               </ul>
             </nav>
           </aside>
-          <header className="admin-title">
-              <h1>{pathname}</h1>
-          </header>
-          <AdminTemplate>
-            {children}
-          </AdminTemplate>
-          <footer className="footer">
-            <p>&copy;2024 - Vamos Comemorar</p>
-          </footer>
+          <div className="grid-2">
+            <div>
+            <header className="admin-title">
+                <h1>{pathname}</h1>
+            </header>
+            <AdminTemplate>
+              {children}
+            </AdminTemplate>
+            </div>
+            <footer className="footer">
+              <p>&copy;2024 - Vamos Comemorar</p>
+            </footer>
+          </div>
       </div>
     </>
   );
