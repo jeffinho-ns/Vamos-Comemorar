@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./reservationModal.module.scss";
 import prog from "../../assets/banner01.webp";
 import logoNew from "../../assets/ohfregues/logoOhfregues.png";
+import gin from "../../assets/programacao/gin.png";
 
 import icon1 from "../../assets/icones/area.png";
 import icon2 from "../../assets/icones/acessivel.png";
@@ -104,7 +105,16 @@ const ReservationModal = ({ isOpen, onRequestClose }) => {
               <input type="date" className={styles.dateInput} />
             </div>
           </div>
+          
         </div>
+        <div className={styles.reservationTitle}>Balde de cerveja ou combo de 142 Gin.</div>
+          <div className={styles.reservationDescription}>- Entrada VIP para o aniversariante + acompanhante - A partir de 15 convidados: balde com 12 long necks. - 
+A partir de 30 convidados: 1 COMBO de 142 Gin com água tônica, suco ou refrigerante. 
+Obs: as bonificações não são acumulativas.
+</div>
+
+<Image src={gin} alt="Gin 142" className={styles.gin} />
+
         <div className={styles.footer}>
           <button onClick={onRequestClose} className={styles.reserveButton}>
             Solicitar Reserva
