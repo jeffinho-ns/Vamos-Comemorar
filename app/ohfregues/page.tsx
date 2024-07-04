@@ -38,6 +38,7 @@ import Modal from 'react-modal';
 const Ohfregues = () => {
   const [showDescription, setShowDescription] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [expandedImage, setExpandedImage] = useState(null);
 
   const toggleContent = (content) => {
     setShowDescription(content === "sobre");
@@ -45,6 +46,9 @@ const Ohfregues = () => {
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
+
+  const openImage = (img) => setExpandedImage(img);
+  const closeImage = () => setExpandedImage(null);
 
   return (
     <>
@@ -144,14 +148,17 @@ const Ohfregues = () => {
             <Section
               title="Ambientes"
               images={[newImg1, newImg2, newImg3, newImg4]}
+              openImage={openImage}
             />
             <Section
               title="Gastronomia"
               images={[gastro1, gastro2, gastro3, gastro4]}
+              openImage={openImage}
             />
             <Section
               title="Bebidas"
               images={[bebida1, bebida2, bebida3, bebida4]}
+              openImage={openImage}
             />
           </>
         )}
@@ -165,20 +172,45 @@ const Ohfregues = () => {
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
+          title="Google Maps"
         ></iframe>
       </div>
+
+      {expandedImage && (
+        <Modal
+          isOpen={!!expandedImage}
+          onRequestClose={closeImage}
+          className={styles.modal}
+          overlayClassName={styles.modalOverlay}
+        >
+          <div className={styles.modalImageContainer}>
+            <Image
+              src={expandedImage}
+              alt="Expanded"
+              className={styles.modalImage}
+              layout="intrinsic"
+              width={800}
+              height={600}
+            />
+          </div>
+        </Modal>
+      )}
 
       <Footer />
     </>
   );
 };
 
-const Section = ({ title, images }) => (
+const Section = ({ title, images, openImage }) => (
   <div className={styles.section}>
     <h2 className={styles.sectionTitle}>{title}</h2>
     <div className={styles.images}>
       {images.map((img, index) => (
-        <div key={index} className={styles.imageContainer}>
+        <div
+          key={index}
+          className={styles.imageContainer}
+          onClick={() => openImage(img)}
+        >
           <Image src={img} alt={title} className={styles.image} />
         </div>
       ))}

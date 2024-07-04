@@ -18,7 +18,7 @@ const Profile = ({ isOpen, onRequestClose }) => {
     cidade: "",
     estado: "",
     complemento: "",
-    foto: null, // novo estado para a foto
+    foto: null, 
   });
 
   const handleChange = (e) => {
