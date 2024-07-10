@@ -1,0 +1,63 @@
+.card-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-container .relative {
+    height: 550px; /* ajustando a altura do card */
+  }
+  
+  .card-container h2 {
+    font-size: 1.25rem; /* ajustando o tamanho da fonte do título */
+    font-weight: bold;
+  }
+  
+  .card-container p {
+    font-size: 1rem; /* ajustando o tamanho da fonte do endereço */
+  }
+  
+  .card-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  input#data {
+    border-radius: 30px;
+    background: #f3f3f3;
+    height: 50px;
+}
+
+svg.text-blue-600.text-2xl.absolute.right-2 {
+    background: #08738A;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 40px;
+    font-size: 10px;
+    padding: 6px;
+}
+  
+  
+  .card-container:hover .card-button {
+    opacity: 1;
+  }
+  .text-red-500 {
+    --tw-text-opacity: 1;
+    color: #A41414;
+}
+  @media (max-width: 768px) {
+    .card-container {
+      height: auto; /* ajustando a altura para a versão mobile */
+      border-radius: 30px;
+    }
+  }
+  
