@@ -11,7 +11,9 @@
 
 .card-container {
   flex: 0 0 auto;
-  width: calc(100% / 1.5); /* Define a largura dos cards para exibir 1.5 cards no mobile */
+  width: calc(
+    100% / 1.5
+  ); /* Define a largura dos cards para exibir 1.5 cards no mobile */
   position: relative;
   overflow: hidden;
   height: 550px; /* Ajuste conforme necessário */
@@ -21,7 +23,9 @@
 @media (max-width: 768px) {
   .card-container {
     height: auto; /* Ajusta a altura para a versão mobile */
-    width: calc(100vw / 1.5); /* Define a largura dos cards para exibir 1.5 cards no mobile */
+    width: calc(
+      100vw / 1.5
+    ); /* Define a largura dos cards para exibir 1.5 cards no mobile */
   }
 }
 
@@ -65,7 +69,7 @@ input#data {
 }
 
 svg.text-blue-600.text-2xl.absolute.right-2 {
-  background: #08738A;
+  background: #08738a;
   color: #fff;
   width: 35px;
   height: 35px;
@@ -80,5 +84,47 @@ svg.text-blue-600.text-2xl.absolute.right-2 {
 
 .text-red-500 {
   --tw-text-opacity: 1;
-  color: #A41414;
+  color: #a41414;
+}
+
+.hideMenuNav {
+  display: none;
+}
+
+header {
+  &.bg-transparent {
+    background: transparent;
+  }
+
+  &.bg-blue-800 {
+    background: rgb(53, 47, 173);
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-only {
+      display: none;
+    }
+  }
+}
+
+#home-container.reduce-scale {
+  transform: scale(0.7) translateX(75%);
+  transition: transform 0.3s ease;
+  background: #fff;
+  border-radius: 30px;
+  display: block;
+  z-index: 999;
+  position: sticky;
+  box-shadow: -63px 63px 19px rgba(255, 255, 255, 0.26);
+
+  .barra-header {
+    background: #08738a !important;
+  }
+}
+.HAMBURGER-ICON {
+  cursor: pointer;
 }

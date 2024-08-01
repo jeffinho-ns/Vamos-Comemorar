@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,52 +49,54 @@ export default function Home() {
   return (
     <>
       <Header />
-      <link rel="manifest" href="/manifest.json" />
+      <div id="home-container" className="container-mobile">
+        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
-      <p className="title">Qual evento você procura? </p>
-      <div className="flex justify-center w-full px-4 py-4">
-        <Form
-          id="form-search"
-          className="w-full border-b-0 form-search bg-white px-4 py-2"
-        >
-          <div className="grid grid-cols-1 gap-4">
-            <div className="flex items-center w-full relative">
-              <MdSearch className="text-blue-600 text-2xl absolute right-2" />
-              <input
-                placeholder="Buscar eventos"
-                type="text"
-                value=""
-                id="data"
-                className="bg-gray-300 p-2 rounded-lg w-full border-blue-600"
-              />
+        <p className="title">Qual evento você procura? </p>
+        <div className="flex justify-center w-full px-4 py-4">
+          <Form
+            id="form-search"
+            className="w-full border-b-0 form-search bg-white px-4 py-2"
+          >
+            <div className="grid grid-cols-1 gap-4">
+              <div className="flex items-center w-full relative">
+                <MdSearch className="text-blue-600 text-2xl absolute right-2" />
+                <input
+                  placeholder="Buscar eventos"
+                  type="text"
+                  value=""
+                  id="data"
+                  className="bg-gray-300 p-2 rounded-lg w-full border-blue-600"
+                />
+              </div>
             </div>
-          </div>
-        </Form>
-      </div>
-      <main className="container mx-auto px-4 bg-white pb-8">
-        <div className="cards-container">
-          <Card
-            image={img01}
-            title="Seu Justino"
-            address="Vila Madalena - SP"
-            link="/justino"
-          />
-          <Card
-            image={img02}
-            title="Oh Fregues"
-            address="Largo da Matriz de Nossa Senhora do Ó, 145"
-            link="/ohfregues"
-          />
-          <Card
-            image={img03}
-            title="Pracinha"
-            address="Vila Madalena - SP"
-            link="/pracinha"
-          />
+          </Form>
         </div>
-      </main>
-      <Footer />
+        <main className="container mx-auto px-4 bg-white pb-8">
+          <div className="cards-container">
+            <Card
+              image={img01}
+              title="Seu Justino"
+              address="Vila Madalena - SP"
+              link="/webapp/justino"
+            />
+            <Card
+              image={img02}
+              title="Oh Fregues"
+              address="Largo da Matriz de Nossa Senhora do Ó, 145"
+              link="/webapp/ohfregues"
+            />
+            <Card
+              image={img03}
+              title="Pracinha"
+              address="Vila Madalena - SP"
+              link="/pracinha"
+            />
+          </div>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
