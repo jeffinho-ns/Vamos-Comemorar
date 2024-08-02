@@ -6,7 +6,7 @@ export default function App() {
   return (
     <footer className="mobile-footer">
       <div className="footer-icons">
-        <Link href="/" className="footer-icon">
+        <Link href="/webapp" className="footer-icon">
           <svg
             width="115"
             height="46"

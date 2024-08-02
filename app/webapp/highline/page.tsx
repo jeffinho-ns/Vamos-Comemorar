@@ -5,28 +5,28 @@ import Image from "next/image";
 import { MdLocationOn, MdInfoOutline, MdEvent } from "react-icons/md";
 import Footer from "../components/footer/footer";
 import HeaderLike from "../components/headerLike/headerLike";
-import imgBanner from "../../assets/oh-fregues.jpg";
+import imgBanner from "../../assets/highline/capa-highline.jpeg";
 import "react-multi-carousel/lib/styles.css";
-import styles from "./ohfregues.module.scss";
+import styles from "./highline.module.scss";
 import Programacao from "../components/programacao/programacao";
 import Profile from "../components/profile/profile";
 import Carousel from "react-multi-carousel";
 
-import newImg1 from "@/app/assets/ohfregues/ambiente-1.jpg";
-import newImg2 from "@/app/assets/ohfregues/ambiente-2.jpg";
-import newImg3 from "@/app/assets/ohfregues/ambiente-3.jpg";
-import newImg4 from "@/app/assets/ohfregues/ambiente-4.jpg";
+import newImg1 from "@/app/assets/highline/ambiente-1.jpeg";
+import newImg2 from "@/app/assets/highline/ambiente-2.jpeg";
+import newImg3 from "@/app/assets/highline/ambiente-3.jpeg";
+import newImg4 from "@/app/assets/highline/ambiente-4.jpeg";
 
-import bebida1 from "@/app/assets/ohfregues/bebidas-1.jpg";
-import bebida2 from "@/app/assets/ohfregues/bebidas-2.jpg";
-import bebida3 from "@/app/assets/ohfregues/bebidas-3.jpg";
-import bebida4 from "@/app/assets/ohfregues/bebidas-4.jpg";
+import bebida1 from "@/app/assets/highline/bebida-1.jpeg";
+import bebida2 from "@/app/assets/highline/bebida-2.jpeg";
+import bebida3 from "@/app/assets/highline/bebida-3.jpeg";
+import bebida4 from "@/app/assets/highline/bebida-4.jpeg";
 
-import gastro1 from "@/app/assets/ohfregues/gastronomia-1.jpg";
-import gastro2 from "@/app/assets/ohfregues/gastronomia-2.jpg";
-import gastro3 from "@/app/assets/ohfregues/gastronomia-3.jpg";
-import gastro4 from "@/app/assets/ohfregues/gastronomia-4.jpg";
-import logoNew from "@/app/assets/ohfregues/logoOhfregues.png";
+import gastro1 from "@/app/assets/highline/gastronomia-1.jpeg";
+import gastro2 from "@/app/assets/highline/gastronomia-2.jpeg";
+import gastro3 from "@/app/assets/highline/gastronomia-3.jpeg";
+import gastro4 from "@/app/assets/highline/gastronomia-4.jpeg";
+import logoNew from "@/app/assets/highline/highlinelogo.png";
 
 import icon1 from "@/app/assets/icones/area.png";
 import icon2 from "@/app/assets/icones/acessivel.png";
@@ -54,7 +54,7 @@ const responsive = {
   },
 };
 
-const Ohfregues = () => {
+const Justino = () => {
   const [showDescription, setShowDescription] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [expandedImage, setExpandedImage] = useState(null);
@@ -85,7 +85,7 @@ const Ohfregues = () => {
           <div className={styles.barInfo}>
             <div className={styles.infoContainer}>
               <div className={styles.leftColumn}>
-                <h1 className={styles.barName}>Oh Freguês</h1>
+                <h1 className={styles.barName}>High Line</h1>
               </div>
               <div className={styles.middleColumn}>
                 <div className={styles.logoContainer}>
@@ -123,10 +123,10 @@ const Ohfregues = () => {
           </div>
 
           <p className={styles.barDescription}>
-            O bar Oh Freguês oferece uma experiência única de interação com o
+            O High Line baro oferece uma experiência única de interação com o
             público, é um ponto de encontro moderno entre os jovens e adultos,
             um lugar perfeito para happy hour, aniversários ou eventos
-            corporativos. 
+            corporativos.
           </p>
 
           {!showDescription && (
@@ -159,7 +159,7 @@ const Ohfregues = () => {
 
           <div className={styles.barDetails}>
             <MdLocationOn className={styles.icon} />
-            <span>Largo da Matriz de Nossa Senhora do Ó, 145</span>
+            <span>Rua Azevedo Soares, 940 - Tatuapé</span>
           </div>
           <div className={styles.mapContainer}>
             <iframe
@@ -270,4 +270,4 @@ const Section = ({ title, images, openImage }) => {
   );
 };
 
-export default Ohfregues;
+export default Justino;

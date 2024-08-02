@@ -126,13 +126,7 @@ const Justino = () => {
             O bar Seu Justino oferece uma experiência única de interação com o
             público, é um ponto de encontro moderno entre os jovens e adultos,
             um lugar perfeito para happy hour, aniversários ou eventos
-            corporativos. A decoração e estilo segue o modelo dos mais diversos
-            hostels espalhados pelo mundo. São quatro ambientes: calçada, onde
-            passa a sensação de estar em uma cidade de interior; piso térreo,
-            que conta com uma decoração moderna; rooftop, área externa com uma
-            linda vista que, aos fins de semana, conta com uma roda de samba
-            para agitar as tardes; além da balada, para finalizar a noite com um
-            ótimo clima de paquera.
+            corporativos.
           </p>
 
           {!showDescription && (

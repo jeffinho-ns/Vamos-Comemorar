@@ -87,7 +87,7 @@ export default function Register() {
                   onChange={(e) => setYear(e.target.value)}
                 >
                   <option>Selecione o ano</option>
-                  {/* Adicione as opções de anos aqui */}
+                
                 </Select>
               </div>
               <div className="column">

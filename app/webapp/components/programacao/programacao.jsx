@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./programacao.module.scss";
 import ReservationModal from "../reservationModal/reservationModal";
-import { MdEvent, MdAccessTime } from "react-icons/md";
+import { MdAccessTime } from "react-icons/md";
 
 import eventImg1 from "@/app/assets/programacao/prog-1.png";
 import eventImg2 from "@/app/assets/programacao/prog-2.png";
@@ -23,7 +23,7 @@ const Programacao = () => {
 
   return (
     <div className={styles.programacao}>
-      <h2 className={styles.sectionTitle}>Programação Oh Freguês</h2>
+      <h2 className={styles.sectionTitle}>Programação da semana</h2>
       <div className={styles.events}>
         <EventCard
           img={eventImg1}
@@ -75,15 +75,18 @@ const EventCard = ({ img, title, category, date, time, openModal }) => (
   <div className={styles.eventCard}>
     <div className={styles.dateDotLine}>
       <button className={styles.selectButton} onClick={openModal}></button>
+      <div className={styles.dotLine}></div>
       <p className={styles.eventDate}>{date}</p>
     </div>
-    <Image src={img} alt={title} className={styles.eventImage} />
-    <div className={styles.eventDetails}>
-      <h3 className={styles.eventTitle}>{title}</h3>
-      <p className={styles.eventCategory}>{category}</p>
-      <div className={styles.eventTimeContainer}>
-        <MdAccessTime className={styles.icon} />
-        <p className={styles.eventTime}>{time}</p>
+    <div className={styles.eventContent}>
+      <Image src={img} alt={title} className={styles.eventImage} />
+      <div className={styles.eventDetails}>
+        <h3 className={styles.eventTitle}>{title}</h3>
+        <p className={styles.eventCategory}>{category}</p>
+        <div className={styles.eventTimeContainer}>
+          <MdAccessTime className={styles.icon} />
+          <p className={styles.eventTime}>{time}</p>
+        </div>
       </div>
     </div>
   </div>

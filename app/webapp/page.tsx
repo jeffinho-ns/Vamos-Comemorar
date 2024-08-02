@@ -15,6 +15,7 @@ import Footer from "./components/footer/footer";
 import img01 from "@/app/webapp/assetsMobile/justino.png";
 import img02 from "@/app/webapp/assetsMobile/ohfregues.png";
 import img03 from "@/app/webapp/assetsMobile/pracinha.png";
+import img04 from "@/app/webapp/assetsMobile/highline.png";
 
 export default function Home() {
   const Card = ({ image, title, address, link }) => (
@@ -91,7 +92,13 @@ export default function Home() {
               image={img03}
               title="Pracinha"
               address="Vila Madalena - SP"
-              link="/pracinha"
+              link="/webapp/pracinha"
+            />
+                        <Card
+              image={img04}
+              title="High Line"
+              address="Vila Madalena - SP"
+              link="/webapp/highline"
             />
           </div>
         </main>
