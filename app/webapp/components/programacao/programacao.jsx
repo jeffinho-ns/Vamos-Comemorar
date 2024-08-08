@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "./programacao.module.scss";
-import ReservationModal from "../reservationModal/reservationModal";
 import { MdAccessTime } from "react-icons/md";
+import Link from "next/link";
 
 import eventImg1 from "@/app/assets/programacao/prog-1.png";
 import eventImg2 from "@/app/assets/programacao/prog-2.png";
@@ -11,70 +11,82 @@ import eventImg4 from "@/app/assets/programacao/prog-4.png";
 import eventImg5 from "@/app/assets/programacao/prog-5.png";
 
 const Programacao = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
+  const handleCardClick = (img) => {
+    localStorage.setItem("selectedEventImage", img.src);
   };
 
   return (
     <div className={styles.programacao}>
       <h2 className={styles.sectionTitle}>Programação da semana</h2>
       <div className={styles.events}>
-        <EventCard
-          img={eventImg1}
-          title="Festa Encontrin"
-          category="Pagode"
-          date="15 Jan 2022"
-          time="20h"
-          openModal={openModal}
-        />
-        <EventCard
-          img={eventImg2}
-          title="Feijoada"
-          category="Alimentação"
-          date="15 Jan 2022"
-          time="12h"
-          openModal={openModal}
-        />
-        <EventCard
-          img={eventImg3}
-          title="Double GIN"
-          category="Bebida"
-          date="15 Jan 2022"
-          time="17h"
-          openModal={openModal}
-        />
-        <EventCard
-          img={eventImg4}
-          title="Double CHOPP"
-          category="Pagode"
-          date="15 Jan 2022"
-          time="20h"
-          openModal={openModal}
-        />
-        <EventCard
-          img={eventImg5}
-          title="Dj KVSH"
-          category="Pagode"
-          date="15 Jan 2022"
-          time="20h"
-          openModal={openModal}
-        />
+        <Link
+          href="/webapp/reservas"
+          onClick={() => handleCardClick(eventImg1)}
+        >
+          <EventCard
+            img={eventImg1}
+            title="Festa Encontrin"
+            category="Pagode"
+            date="15 Jan 2022"
+            time="20h"
+          />
+        </Link>
+        <Link
+          href="/webapp/reservas"
+          onClick={() => handleCardClick(eventImg2)}
+        >
+          <EventCard
+            img={eventImg2}
+            title="Feijoada"
+            category="Alimentação"
+            date="15 Jan 2022"
+            time="12h"
+          />
+        </Link>
+        <Link
+          href="/webapp/reservas"
+          onClick={() => handleCardClick(eventImg3)}
+        >
+          <EventCard
+            img={eventImg3}
+            title="Double GIN"
+            category="Bebida"
+            date="15 Jan 2022"
+            time="17h"
+          />
+        </Link>
+        <Link
+          href="/webapp/reservas"
+          onClick={() => handleCardClick(eventImg4)}
+        >
+          <EventCard
+            img={eventImg4}
+            title="Double CHOPP"
+            category="Pagode"
+            date="15 Jan 2022"
+            time="20h"
+          />
+        </Link>
+        <Link
+          href="/webapp/reservas"
+          onClick={() => handleCardClick(eventImg5)}
+        >
+          <EventCard
+            img={eventImg5}
+            title="Dj KVSH"
+            category="Pagode"
+            date="15 Jan 2022"
+            time="20h"
+          />
+        </Link>
       </div>
-      <ReservationModal isOpen={modalIsOpen} onRequestClose={closeModal} />
     </div>
   );
 };
 
-const EventCard = ({ img, title, category, date, time, openModal }) => (
+const EventCard = ({ img, title, category, date, time }) => (
   <div className={styles.eventCard}>
     <div className={styles.dateDotLine}>
-      <button className={styles.selectButton} onClick={openModal}></button>
       <div className={styles.dotLine}></div>
       <p className={styles.eventDate}>{date}</p>
     </div>
